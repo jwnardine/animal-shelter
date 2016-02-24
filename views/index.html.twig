@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Animal shelter</title>
+</head>
+<body>
+    <h1>Welcome to the animal shelter directory!</h1>
+    <p>Add a new breed:</p>
+
+    <form action="/breeds" method="post">
+        <label for="name">Category name:</label>
+        <input id="name" name="name" type="text">
+
+        <button type="submit">Add breed</button>
+    </form>
+
+    {% if breeds is not empty %}
+        <p>Here are all your breeds:</p>
+        <ul>
+            {% for breed in breeds %}
+                <li><a href="/breeds/{{ breed.getId }}">{{ breed.getName }}</a></li>
+            {% endfor %}
+        </ul>
+   {% else %}
+     <p>There are no breeds yet!</p>
+   {% endif %}
+
+</body>
+</html>

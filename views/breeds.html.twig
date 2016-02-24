@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>Breeds</h1>
+
+    {% if breeds is not empty %}
+        <p>Here are all your breeds:</p>
+        <ul>
+            {% for breed in breeds %}
+                <li>{{ breed.getName }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action='/breeds' method='post'>
+        <label for='name'>Category name</label>
+        <input id='name' name='name' type='text'>
+
+        <button type='submit'>Add breed</button>
+    </form>
+    <form action='/delete_breeds' method='post'>
+        <button type='submit'>Clear</button>
+    </form>
+
+    <p><a href='/'>Home</a></p>
+</body>
+</html>
